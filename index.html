@@ -1,455 +1,717 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GMDE - Desenvolvimento de Software</title>
-    <meta name="description" content="A GMDE é especializada em desenvolvimento de software, criando soluções web modernas, escaláveis e eficientes.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <meta
+      name="description"
+      content="A GMDE é especializada em desenvolvimento de software, criando soluções web modernas, escaláveis e eficientes."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="top"></div>
+
     <!-- Navigation -->
     <nav id="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">
-                    <img src="img/logo.png" alt="GMDE Logo">
-                </div>
+      <div class="container">
+        <div class="nav-content">
+          <div class="logo" onclick="scrollToSection('top')">
+            <img src="img/logo.png" alt="GMDE Logo" />
+          </div>
 
-                <!-- Desktop Menu -->
-                <div class="nav-menu" id="navMenu">
-                    <a href="#sobre" class="nav-link">Sobre</a>
-                    <a href="#equipe" class="nav-link">Equipe</a>
-                    <a href="#servicos" class="nav-link">Serviços</a>
-                    <a href="#portfolio" class="nav-link">Portfólio</a>
-                    <button class="btn-primary" onclick="scrollToSection('contato')">CONTATO</button>
-                </div>
+          <!-- Desktop Menu -->
+          <div class="nav-menu" id="navMenu">
+            <a href="#sobre" class="nav-link">Sobre</a>
+            <a href="#metodologia" class="nav-link">Metodologia</a>
+            <a href="#portfolio" class="nav-link">Portfólio</a>
+            <a href="#equipe" class="nav-link">Equipe</a>
+            <button class="btn-primary" onclick="scrollToSection('contato')">
+              CONTATO
+            </button>
+          </div>
 
-                <!-- Mobile Menu Button -->
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <span class="hamburger"></span>
-                </button>
-            </div>
+          <!-- Mobile Menu Button -->
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span class="hamburger"></span>
+          </button>
         </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <!-- Texto -->
-                <div class="hero-content">
-                    <h1>Transformamos Suas Ideias em Realidade Digital</h1>
-                    
-                    <div class="purple-border-left">
-                        <p class="hero-description">
-                            Desenvolvimento de software personalizado para empresas que buscam inovação, 
-                            performance e resultados concretos no mundo digital.
-                        </p>
-                    </div>
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Texto -->
+          <div class="hero-content">
+            <h1>
+              <span id="typewriter"></span>
+            </h1>
 
-                    <button class="btn-large" onclick="scrollToSection('contato')">
-                        Iniciar Projeto
-                    </button>
-                </div>
-
-                <!-- Imagem -->
-                <div class="hero-image">
-                    <img src="img/inicial.png" alt="Desenvolvimento Web">
-                </div>
+            <div class="purple-border-left">
+              <p class="hero-description">
+                Desenvolvimento de softwares personalizados para empresas, e
+                pessoas físicas, que buscam a concretização de suas respectivas
+                metas, concernentes as mais diversas vertentes.
+              </p>
             </div>
 
-            
+            <button class="btn-large" onclick="scrollToSection('contato')">
+              Iniciar Projeto
+            </button>
+          </div>
+
+          <!-- Imagem -->
+          <div class="hero-image">
+            <img src="img/inicial.png" alt="Desenvolvimento Web" />
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Sobre Section -->
     <section id="sobre" class="section bg-secondary">
-        <div class="container">
-            <div class="section-header">
-                <h2>Sobre a GMDE</h2>
-                <div class="divider"></div>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-content">
-                    <p class="large-text">
-                        A GMDE é uma empresa especializada em desenvolvimento de software, 
-                        focada em criar soluções web modernas, escaláveis e eficientes.
-                    </p>
-                    <p class="large-text">
-                        Com uma equipe jovem e tecnicamente qualificada, transformamos desafios 
-                        complexos em produtos digitais intuitivos e de alto desempenho.
-                    </p>
-                </div>
-
-                <div class="features">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="16 18 22 12 16 6"></polyline>
-                                <polyline points="8 6 2 12 8 18"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Código Limpo</h4>
-                            <p>Seguindo as melhores práticas de desenvolvimento</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="2" y1="12" x2="22" y2="12"></line>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Web Moderno</h4>
-                            <p>Tecnologias de ponta para máxima performance</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Responsivo</h4>
-                            <p>Experiência perfeita em todos os dispositivos</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Sobre a GMDE</h2>
+          <div class="divider"></div>
         </div>
+
+        <div class="about-grid">
+          <div class="about-content">
+            <p class="large-text">
+              A GMDE é uma empresa freelancer correlacionada a desenvolvimento
+              de softwares, focada em criar soluções web funcionais, escaláveis
+              e eficientes.
+            </p>
+            <p class="large-text">
+              Com uma equipe jovem em desenvolvimento, transformamos desafios
+              complexos em produtos digitais úteis, intuitivos e visando sempre
+              um bom desempenho.
+            </p>
+          </div>
+
+          <div class="features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4>Código Limpo</h4>
+                <p>Seguindo as práticas de desenvolvimento</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path
+                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h4>Web Moderno</h4>
+                <p>Tecnologias de ponta visando uma boa performance</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="2" />
+                  <circle cx="6" cy="6" r="2" />
+                  <circle cx="18" cy="6" r="2" />
+                  <circle cx="6" cy="18" r="2" />
+                  <circle cx="18" cy="18" r="2" />
+                  <line x1="8" y1="8" x2="10.5" y2="10.5" />
+                  <line x1="16" y1="8" x2="13.5" y2="10.5" />
+                  <line x1="8" y1="16" x2="10.5" y2="13.5" />
+                  <line x1="16" y1="16" x2="13.5" y2="13.5" />
+                </svg>
+              </div>
+              <div>
+                <h4>IA aplicada</h4>
+                <p>Usamos a IA para estruturação e organização do código.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+              </div>
+              <div>
+                <h4>Responsivo</h4>
+                <p>Experiência perfeita em todos os dispositivos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Serviços Section -->
-    <section id="servicos" class="section bg-secondary">
-        <div class="container">
-            <div class="section-header">
-                <h2>Serviços</h2>
-                <div class="divider"></div>
-                <p class="section-subtitle">Soluções completas para suas necessidades digitais</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="2" y1="12" x2="22" y2="12"></line>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                        </svg>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>Sites e aplicações web responsivas com tecnologias modernas</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                        </svg>
-                    </div>
-                    <h3>Mobile Apps</h3>
-                    <p>Aplicativos nativos e híbridos para iOS e Android</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                        </svg>
-                    </div>
-                    <h3>Backend & APIs</h3>
-                    <p>Sistemas robustos e APIs RESTful escaláveis</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Consultoria Tech</h3>
-                    <p>Code review e otimização de projetos existentes</p>
-                </div>
-            </div>
+    <section id="metodologia" class="section bg-secondary">
+      <div class="container">
+        <div class="section-header">
+          <h2>Metodologia aplicada</h2>
+          <div class="divider"></div>
+          <p class="section-subtitle">
+            Nossa equipe visa diretamente a praticabilidade de métodos que visam
+            o cliente como o centro da relação, o que significa, o uso de
+            metodologias ágeis, as quais seguem princípios que divergem de uma execução inflexível do
+            projeto, mas que prioriza o constante diálogo, sempre com o objetivo de satisfazer as
+            demandas requeridas pelo adquirente.
+          </p>
         </div>
-    </section>
 
-    <!-- Equipe Section -->
-    <section id="equipe" class="section bg-primary">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nossa Equipe</h2>
-                <div class="divider"></div>
-                <p class="section-subtitle">Conheça os profissionais por trás da GMDE</p>
+        <!-- Substituindo os 4 cards genéricos pelos 12 princípios ágeis -->
+        <div class="services-grid">
+          <!-- Princípio 1: Satisfaça o consumidor -->
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
             </div>
+            <h3>Satisfaça o consumidor</h3>
+            <p>Prioridade é satisfazer o cliente através da entrega contínua de software com valor</p>
+          </div>
 
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="photo-placeholder"></div>
-                    </div>
-                    <h3>Desenvolvedor 1</h3>
-                    <p class="role">Full Stack Developer</p>
-                    <p class="bio">
-                        Especialista em React, Next.js e Node.js com paixão por criar 
-                        experiências digitais incríveis
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="photo-placeholder"></div>
-                    </div>
-                    <h3>Desenvolvedor 2</h3>
-                    <p class="role">Frontend Developer</p>
-                    <p class="bio">
-                        Focado em UI/UX e animações web, transformando designs em código 
-                        limpo e performático
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+          <!-- Princípio 2: Aceite bem mudanças -->
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"></path>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
             </div>
+            <h3>Aceite bem mudanças</h3>
+            <p>Mudanças nos requisitos são bem-vindas, mesmo tardiamente no desenvolvimento</p>
+          </div>
+
+          <!-- Princípio 3: Entregas frequentes -->
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <h3>Entregas frequentes</h3>
+            <p>Entregue software funcionando com frequência, de semanas a meses</p>
+          </div>
+
+          <!-- Princípio 4: Trabalhe em conjunto -->
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3>Trabalhe em conjunto</h3>
+            <p>Pessoas de negócio e desenvolvedores devem trabalhar juntos diariamente</p>
+          </div>
+
+          <!-- Princípio 5: Confie e apoie -->
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7" r="4"></circle>
+                <polyline points="17 11 19 13 23 9"></polyline>
+              </svg>
+            </div>
+            <h3>Confie e apoie</h3>
+            <p>Construa projetos em torno de indivíduos motivados, dando-lhes ambiente e suporte</p>
+          </div>
+
+          <!-- Princípio 6: Conversas face a face -->
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <h3>Conversas face a face</h3>
+            <p>O método mais eficiente de transmitir informações é através de conversas pessoais</p>
+          </div>
+
+          <!-- Princípio 7: Softwares funcionando -->
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+                <circle cx="12" cy="10" r="2"></circle>
+                <path d="M12 12v2"></path>
+              </svg>
+            </div>
+            <h3>Softwares funcionando</h3>
+            <p>Software funcionando é a medida primária de progresso</p>
+          </div>
+
+          <!-- Princípio 8: Desenvolvimento sustentável -->
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="20" x2="12" y2="10"></line>
+                <line x1="18" y1="20" x2="18" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="16"></line>
+              </svg>
+            </div>
+            <h3>Desenvolvimento sustentável</h3>
+            <p>Processos ágeis promovem desenvolvimento sustentável em ritmo constante</p>
+          </div>
+
+          <!-- Princípio 9: Atenção contínua -->
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <h3>Atenção contínua</h3>
+            <p>Atenção contínua à excelência técnica e ao bom design aumenta a agilidade</p>
+          </div>
+
+          <!-- Princípio 10: Mantenha a simplicidade -->
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <h3>Mantenha a simplicidade</h3>
+            <p>Simplicidade: a arte de maximizar a quantidade de trabalho não realizado</p>
+          </div>
+
+          <!-- Princípio 11: Times auto-organizados -->
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m-2 2l-4.2 4.2M23 12h-6m-6 0H1m18.2.8l-4.2-4.2m-2 2l-4.2-4.2"></path>
+              </svg>
+            </div>
+            <h3>Times auto-organizados</h3>
+            <p>As melhores arquiteturas emergem de equipes auto-organizadas</p>
+          </div>
+
+          <!-- Princípio 12: Refletir e ajustar -->
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              </svg>
+            </div>
+            <h3>Refletir e ajustar</h3>
+            <p>Em intervalos regulares, a equipe reflete sobre como se tornar mais eficaz</p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="section bg-primary">
-        <div class="container">
-            <div class="section-header">
-                <h2>Portfólio</h2>
-                <div class="divider"></div>
-                <p class="section-subtitle">Alguns dos projetos que desenvolvemos com excelência</p>
-            </div>
-
-            <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        <div class="image-placeholder"></div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>E-commerce Moderno</h3>
-                        <p>Plataforma completa de vendas online com painel administrativo</p>
-                        <div class="tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Next.js</span>
-                            <span class="tag">Stripe</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        <div class="image-placeholder"></div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Dashboard Analytics</h3>
-                        <p>Sistema de análise de dados em tempo real para tomada de decisões</p>
-                        <div class="tags">
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">MongoDB</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        <div class="image-placeholder"></div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>App de Fitness</h3>
-                        <p>Aplicativo mobile para acompanhamento de treinos e nutrição</p>
-                        <div class="tags">
-                            <span class="tag">React Native</span>
-                            <span class="tag">Firebase</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        <div class="image-placeholder"></div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Landing Page SaaS</h3>
-                        <p>Landing page de alta conversão para produto SaaS com integração de pagamentos</p>
-                        <div class="tags">
-                            <span class="tag">Next.js</span>
-                            <span class="tag">Tailwind</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        <div class="image-placeholder"></div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Sistema ERP</h3>
-                        <p>Sistema completo de gestão empresarial com múltiplos módulos integrados</p>
-                        <div class="tags">
-                            <span class="tag">Vue.js</span>
-                            <span class="tag">PostgreSQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card cta-card">
-                    <div class="portfolio-image cta-image">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Seu Projeto Aqui</h3>
-                        <p>Pronto para transformar sua ideia em realidade? Entre em contato conosco</p>
-                        <button class="btn-secondary" onclick="scrollToSection('contato')">
-                            Iniciar Projeto
-                        </button>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Portfólio</h2>
+          <div class="divider"></div>
+          <p class="section-subtitle">
+            Alguns dos projetos que desenvolvemos com excelência
+          </p>
         </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <div class="image-placeholder"></div>
+            </div>
+            <div class="portfolio-content">
+              <h3>E-commerce Moderno</h3>
+              <p>
+                Plataforma completa de vendas online com painel administrativo
+              </p>
+              <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">Stripe</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <div class="image-placeholder"></div>
+            </div>
+            <div class="portfolio-content">
+              <h3>Dashboard Analytics</h3>
+              <p>
+                Sistema de análise de dados em tempo real para tomada de
+                decisões
+              </p>
+              <div class="tags">
+                <span class="tag">TypeScript</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <div class="image-placeholder"></div>
+            </div>
+            <div class="portfolio-content">
+              <h3>App de Fitness</h3>
+              <p>Aplicativo mobile para acompanhamento de treinos e nutrição</p>
+              <div class="tags">
+                <span class="tag">React Native</span>
+                <span class="tag">Firebase</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <div class="image-placeholder"></div>
+            </div>
+            <div class="portfolio-content">
+              <h3>Landing Page SaaS</h3>
+              <p>
+                Landing page de alta conversão para produto SaaS com integração
+                de pagamentos
+              </p>
+              <div class="tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">Tailwind</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <div class="image-placeholder"></div>
+            </div>
+            <div class="portfolio-content">
+              <h3>Sistema ERP</h3>
+              <p>
+                Sistema completo de gestão empresarial com múltiplos módulos
+                integrados
+              </p>
+              <div class="tags">
+                <span class="tag">Vue.js</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card cta-card">
+            <div class="portfolio-image cta-image">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <div class="portfolio-content">
+              <h3>Seu Projeto Aqui</h3>
+              <p>
+                Pronto para transformar sua ideia em realidade? Entre em contato
+                conosco
+              </p>
+              <button
+                class="btn-secondary"
+                onclick="scrollToSection('contato')"
+              >
+                Iniciar Projeto
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipe Section -->
+    <section id="equipe" class="section bg-primary">
+      <div class="container">
+        <div class="section-header">
+          <h2>Nossa Equipe</h2>
+          <div class="divider"></div>
+          <p class="section-subtitle">
+            Conheça os profissionais por trás da GMDE
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-photo">
+              <div class="photo-placeholder"></div>
+            </div>
+            <h3>Desenvolvedor 1</h3>
+            <p class="role">Full Stack Developer</p>
+            <p class="bio">
+              Especialista em React, Next.js e Node.js com paixão por criar
+              experiências digitais incríveis
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-btn">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a href="#" class="social-btn">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <div class="team-photo">
+              <div class="photo-placeholder"></div>
+            </div>
+            <h3>Desenvolvedor 2</h3>
+            <p class="role">Frontend Developer</p>
+            <p class="bio">
+              Focado em UI/UX e animações web, transformando designs em código
+              limpo e performático
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-btn">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a href="#" class="social-btn">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contato Section -->
     <section id="contato" class="section bg-secondary">
-        <div class="container">
-            <div class="section-header">
-                <h2>Entre em Contato</h2>
-                <div class="divider"></div>
-                <p class="section-subtitle">Vamos conversar sobre seu projeto e como podemos ajudar</p>
-            </div>
-
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>contato@gmde.com.br</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Telefone</h4>
-                            <p>+55 (11) 9999-9999</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Localização</h4>
-                            <p>São Paulo, Brasil</p>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Seu nome" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Seu email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Sua mensagem" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Enviar Mensagem</button>
-                </form>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Entre em Contato</h2>
+          <div class="divider"></div>
+          <p class="section-subtitle">
+            Vamos conversar sobre seu projeto e como podemos ajudar
+          </p>
         </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4>Email</h4>
+                <p>contato@gmde.com.br</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h4>Telefone</h4>
+                <p>+55 (11) 9999-9999</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <h4>Localização</h4>
+                <p>São Paulo, Brasil</p>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" placeholder="Seu nome" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Seu email" required />
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Sua mensagem" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Enviar Mensagem</button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="img/footer.png" alt="GMDE Logo">
-                </div>
-                <p class="copyright">© 2025 GMDE. Todos os direitos reservados.</p>
-                <div class="footer-social">
-                    <a href="#" class="social-btn">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-btn">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="img/footer.png" alt="GMDE Logo" />
+          </div>
+          <p class="copyright">© 2025 GMDE. Todos os direitos reservados.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                ></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" class="social-btn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                ></path>
+              </svg>
+            </a>
+          </div>
         </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
