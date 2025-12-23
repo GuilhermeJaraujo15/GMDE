@@ -523,6 +523,14 @@ p {
   background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
 }
 
+/* Adicionando estilo para imagens dentro de .team-photo */
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .photo-placeholder {
   width: 100%;
   height: 100%;
@@ -564,11 +572,35 @@ p {
 
 /* Portfolio Grid */
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: flex;
   gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1.5rem;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
+/* Scrollbar discreta */
+.portfolio-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.portfolio-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.portfolio-grid::-webkit-scrollbar-thumb {
+  background: rgba(145, 2, 255, 0.35);
+  border-radius: 999px;
+}
+
+.cta-card {
+  border-width: 2px;
+}
+
+
+/* Novo design do card de portfolio sem imagem */
 .portfolio-card {
   background: var(--bg-secondary);
   border: 1px solid var(--primary-20);
@@ -576,81 +608,234 @@ p {
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 340px;
+  scroll-snap-align: start;
 }
 
 .portfolio-card:hover {
   border-color: var(--primary);
   transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(145, 2, 255, 0.15);
 }
 
-.portfolio-image {
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+/* Decoração superior do card com gradiente */
+.portfolio-decoration {
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, #7c3aed 50%, var(--primary) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
 }
 
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--primary-20) 0%, rgba(124, 58, 237, 0.1) 100%);
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
-.portfolio-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+/* Decoração especial para o card CTA */
+.cta-decoration {
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary) 0%, #7c3aed 25%, #c026d3 50%, #7c3aed 75%, var(--primary) 100%);
+  background-size: 300% 100%;
+  animation: shimmer 2s ease-in-out infinite;
 }
 
-.portfolio-card:hover .portfolio-image img {
-  transform: scale(1.1);
-}
-
+/* Conteúdo do card reorganizado */
 .portfolio-content {
-  padding: 1.5rem;
+  padding: 2rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
 }
 
 .portfolio-content h3 {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  color: var(--white);
 }
 
 .portfolio-content p {
   font-size: 0.875rem;
   color: var(--white-70);
-  margin-bottom: 1rem;
+  margin: 0;
+  line-height: 1.6;
+  flex-grow: 1;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: auto;
 }
 
 .tag {
   background: var(--primary-20);
-  color: var(--primary);
-  padding: 0.25rem 0.75rem;
+  color: white;
+  padding: 0.375rem 0.875rem;
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 600;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
 }
 
+.tag:hover {
+  background: var(--primary-30);
+  border-color: var(--primary);
+}
+
+/* Novos links com ícones SVG */
+.portfolio-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--primary-20);
+}
+
+.portfolio-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-20);
+  border: 1px solid var(--primary-30);
+  border-radius: 0.5rem;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex: 1;
+  justify-content: center;
+}
+
+.portfolio-link:hover {
+  background: var(--primary-30);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(145, 2, 255, 0.2);
+}
+
+.portfolio-link svg {
+  width: 1rem;
+  height: 1rem;
+  stroke: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-link:hover svg {
+  transform: translateX(2px);
+}
+
+/* Estilos específicos para o card CTA */
 .cta-card {
   cursor: default;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(145, 2, 255, 0.05) 100%);
 }
 
-.cta-image {
+.cta-card:hover {
+  transform: translateY(-4px);
+}
+
+.cta-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--primary-20) 0%, rgba(124, 58, 237, 0.2) 100%);
+  background: var(--primary-20);
+  border-radius: 1rem;
+  border: 2px solid var(--primary-30);
 }
 
-.cta-image svg {
-  width: 5rem;
-  height: 5rem;
+.cta-icon svg {
+  width: 2rem;
+  height: 2rem;
   color: var(--primary);
 }
+
+.cta-card .portfolio-content {
+  text-align: center;
+  align-items: center;
+}
+
+.cta-card h3 {
+  font-size: clamp(1.8rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.cta-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--white-70);
+  max-width: 22rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-card .btn-secondary {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.75rem;
+}
+
+/* Estilos específicos para o card CTA */
+.cta-card {
+  cursor: default;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(145, 2, 255, 0.05) 100%);
+}
+
+.cta-card:hover {
+  transform: translateY(-12px);
+}
+
+.cta-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-20);
+  border-radius: 1rem;
+  border: 2px solid var(--primary-30);
+}
+
+.cta-icon svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary);
+}
+
+.cta-card .portfolio-content {
+  text-align: center;
+  align-items: center;
+} 
+
+.cta-card h3 {
+  font-size: 1.75rem;
+}
+
+.cta-card .btn-secondary {
+  margin-top: 0.5rem;
+  max-width: 200px;
+}
+
 
 /* Contact Section */
 .contact-grid {
@@ -742,6 +927,83 @@ p {
 
 .btn-submit:hover {
   background: var(--primary-dark);
+}
+
+/* Texto informativo acima do form */
+.form-hint {
+  font-size: 0.9rem;
+  color: var(--white-70);
+  margin-bottom: 1rem;
+  border-left: 3px solid var(--primary);
+  padding-left: 0.75rem;
+}
+
+/* Validação visual */
+.field-error {
+  display: none;
+  font-size: 0.75rem;
+  color: #ff6b6b;
+  margin-top: 0.25rem;
+}
+
+.form-group.invalid input,
+.form-group.invalid textarea {
+  border-color: #ff6b6b;
+}
+
+.form-group.invalid .field-error {
+  display: block;
+}
+
+/* Loader do botão */
+.btn-submit {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-loader {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: none;
+}
+
+.btn-submit.loading .btn-text {
+  display: none;
+}
+
+.btn-submit.loading .btn-loader {
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--bg-secondary);
+  color: white;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--primary);
+  border-radius: 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+  z-index: 2000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Footer */

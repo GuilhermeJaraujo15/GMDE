@@ -154,3 +154,67 @@ document.addEventListener("click", (e) => {
     navMenu.classList.remove("active")
   }
 })
+
+emailjs.init("service_i5cz927")
+
+const form = document.getElementById("contactForm")
+const button = document.getElementById("submitBtn")
+const toast = document.getElementById("toast")
+
+function showToast(message, success = true) {
+  toast.textContent = message
+  toast.style.borderLeftColor = success ? "var(--primary)" : "#ff6b6b"
+  toast.classList.add("show")
+
+  setTimeout(() => toast.classList.remove("show"), 4000)
+}
+
+function validateForm() {
+  let valid = true
+
+  form.querySelectorAll(".form-group").forEach(group => {
+    group.classList.remove("invalid")
+    const input = group.querySelector("input, textarea")
+
+    if (!input.checkValidity()) {
+      group.classList.add("invalid")
+      valid = false
+    }
+  })
+
+  return valid
+}
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault()
+
+  if (!validateForm()) {
+    showToast("Preencha corretamente os campos.", false)
+    return
+  }
+
+  if (grecaptcha.getResponse().length === 0) {
+    showToast("Confirme o reCAPTCHA.", false)
+    return
+  }
+
+  button.classList.add("loading")
+
+  emailjs
+    .sendForm(
+      "service_i5cz927",
+      "service_i5cz927",
+      form
+    )
+    .then(() => {
+      showToast("Mensagem enviada com sucesso!")
+      form.reset()
+      grecaptcha.reset()
+    })
+    .catch(() => {
+      showToast("Erro ao enviar. Tente novamente.", false)
+    })
+    .finally(() => {
+      button.classList.remove("loading")
+    })
+})
