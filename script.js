@@ -45,14 +45,6 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll
 })
 
-// Form Submit
-const contactForm = document.getElementById("contactForm")
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault()
-  alert("Mensagem enviada com sucesso! Entraremos em contato em breve.")
-  contactForm.reset()
-})
-
 // Animações ao scroll (Intersection Observer)
 const observerOptions = {
   threshold: 0.1,
@@ -155,66 +147,57 @@ document.addEventListener("click", (e) => {
   }
 })
 
-emailjs.init("service_i5cz927")
-
 const form = document.getElementById("contactForm")
-const button = document.getElementById("submitBtn")
 const toast = document.getElementById("toast")
-
-function showToast(message, success = true) {
-  toast.textContent = message
-  toast.style.borderLeftColor = success ? "var(--primary)" : "#ff6b6b"
-  toast.classList.add("show")
-
-  setTimeout(() => toast.classList.remove("show"), 4000)
-}
-
-function validateForm() {
-  let valid = true
-
-  form.querySelectorAll(".form-group").forEach(group => {
-    group.classList.remove("invalid")
-    const input = group.querySelector("input, textarea")
-
-    if (!input.checkValidity()) {
-      group.classList.add("invalid")
-      valid = false
-    }
-  })
-
-  return valid
-}
 
 form.addEventListener("submit", function (e) {
   e.preventDefault()
 
-  if (!validateForm()) {
-    showToast("Preencha corretamente os campos.", false)
+  const name = form.from_name.value.trim()
+  const email = form.reply_to.value.trim()
+  const message = form.message.value.trim()
+
+  if (!name || !email || !message) {
+    showToast("Preencha todos os campos corretamente.", false)
     return
   }
 
-  if (grecaptcha.getResponse().length === 0) {
-    showToast("Confirme o reCAPTCHA.", false)
-    return
+  const subject = encodeURIComponent("Novo contato via site GMRD")
+  const body = encodeURIComponent(
+    `Nome: ${name}\n` +
+    `Email: ${email}\n\n` +
+    `Mensagem:\n${message}`
+  )
+
+  const useGmail = confirm(
+    "Deseja enviar a mensagem pelo Gmail?\n\n" +
+    "OK → Abrir Gmail\n" +
+    "Cancelar → Usar aplicativo de e-mail padrão"
+  )
+
+  if (useGmail) {
+    const gmailURL =
+      `https://mail.google.com/mail/?view=cm&to=gmrdsystems@gmail.com` +
+      `&su=${subject}&body=${body}`
+
+    window.open(gmailURL, "_blank")
+    showToast("Abrindo Gmail…", true)
+  } else {
+    window.location.href =
+      `mailto:gmrdsystems@gmail.com?subject=${subject}&body=${body}`
+
+    showToast("Abrindo aplicativo de e-mail padronizado…", true)
   }
 
-  button.classList.add("loading")
-
-  emailjs
-    .sendForm(
-      "service_i5cz927",
-      "service_i5cz927",
-      form
-    )
-    .then(() => {
-      showToast("Mensagem enviada com sucesso!")
-      form.reset()
-      grecaptcha.reset()
-    })
-    .catch(() => {
-      showToast("Erro ao enviar. Tente novamente.", false)
-    })
-    .finally(() => {
-      button.classList.remove("loading")
-    })
+  form.reset()
 })
+
+function showToast(message, success = true) {
+  toast.textContent = message
+  toast.classList.remove("error", "success")
+  toast.classList.add("show", success ? "success" : "error")
+
+  setTimeout(() => {
+    toast.classList.remove("show")
+  }, 3000)
+}
