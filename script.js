@@ -164,29 +164,37 @@ form.addEventListener("submit", function (e) {
 
   const subject = encodeURIComponent("Novo contato via site GMRD")
   const body = encodeURIComponent(
-    `Nome: ${name}\n` +
-    `Email: ${email}\n\n` +
-    `Mensagem:\n${message}`
+    `Nome: ${name}\nEmail: ${email}\n\nMensagem:\n${message}`
   )
 
-  const useGmail = confirm(
-    "Deseja enviar a mensagem pelo Gmail?\n\n" +
-    "OK → Abrir Gmail\n" +
-    "Cancelar → Usar aplicativo de e-mail padrão"
-  )
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
 
-  if (useGmail) {
-    const gmailURL =
-      `https://mail.google.com/mail/?view=cm&to=gmrdsystems@gmail.com` +
-      `&su=${subject}&body=${body}`
+  if (!isMobile) {
+    // DESKTOP → perguntar Gmail ou mailto
+    const useGmail = confirm(
+      "Deseja enviar a mensagem pelo Gmail?\n\n" +
+      "OK → Gmail Web\n" +
+      "Cancelar → Aplicativo de e-mail"
+    )
 
-    window.open(gmailURL, "_blank")
-    showToast("Abrindo Gmail…", true)
+    if (useGmail) {
+      window.open(
+        `https://mail.google.com/mail/?view=cm&to=gmrdsystems@gmail.com&su=${subject}&body=${body}`,
+        "_blank"
+      )
+      showToast("Abrindo Gmail…", true)
+    } else {
+      window.location.href =
+        `mailto:gmrdsystems@gmail.com?subject=${subject}&body=${body}`
+      showToast("Abrindo aplicativo de e-mail…", true)
+    }
+
   } else {
+    // MOBILE → mailto (único confiável)
     window.location.href =
       `mailto:gmrdsystems@gmail.com?subject=${subject}&body=${body}`
 
-    showToast("Abrindo aplicativo de e-mail padronizado…", true)
+    showToast("Abrindo aplicativo de e-mail…", true)
   }
 
   form.reset()
